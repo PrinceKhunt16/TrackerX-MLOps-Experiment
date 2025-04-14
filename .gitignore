@@ -90,3 +90,5 @@ target/
 
 .venv
 credentials.txt
+local_s3
+models

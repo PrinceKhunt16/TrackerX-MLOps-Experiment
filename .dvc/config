@@ -1,0 +1,4 @@
+[core]
+    remote = dvclocal
+['remote "dvclocal"']
+    url = ../local_s3
