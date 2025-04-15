@@ -4,10 +4,12 @@ import os
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import pickle
+from dotenv import load_dotenv
 
 class TestModelLoading(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        load_dotenv()
         dagshub_token = os.getenv("CAPSTONE_TEST")
 
         if not dagshub_token:
