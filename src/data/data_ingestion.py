@@ -11,7 +11,6 @@ from io import StringIO
 # from src.connections import s3_connection
 
 def load_params(params_path: str) -> dict:
-    """Load parameters from a YAML file."""
     try:
         with open(params_path, 'r') as file:
             params = yaml.safe_load(file)
@@ -28,7 +27,6 @@ def load_params(params_path: str) -> dict:
         raise
 
 def load_data(data_url: str) -> pd.DataFrame:
-    """Load data from a CSV file."""
     try:
         response = requests.get(data_url, verify=False) 
         response.raise_for_status() 
@@ -44,7 +42,6 @@ def load_data(data_url: str) -> pd.DataFrame:
         raise
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Preprocess the data."""
     try:
         # df.drop(columns=['tweet_id'], inplace=True)
         logging.info("pre-processing...")
@@ -60,7 +57,6 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
         raise
 
 def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
-    """Save the train and test datasets."""
     try:
         raw_data_path = os.path.join(data_path, 'raw')
         os.makedirs(raw_data_path, exist_ok=True)
